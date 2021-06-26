@@ -28,3 +28,29 @@ In the Unity editor, in the top menu bar, select "Tools > Generate StateMachines
 You only really have to generate again when you either add new states, or add new functions to your state machine interface
 
 You can now create an authoring component that adds this state machine component to an entity ([example](https://github.com/PhilSA/DOTSStateMachine/blob/master/Assets/_Samples/Basic/Scripts/ActorAuthoring.cs)), and call updates on you state machine with a system ([example](https://github.com/PhilSA/DOTSStateMachine/blob/master/Assets/_Samples/Basic/Scripts/ActorSystem.cs))
+
+
+## Tips
+
+### Parameter structs
+Creating a single struct to contain all the data needed to pass to a state function can greatly help with avoiding the need to regenerate the state machine code. So instead of this:
+```cs
+void OnStateUpdate(float deltaTime, ref Actor actor, ref BasicStateMachine stateMachine, ref Translation translation, ref Rotation rotation);
+```
+
+You could do this:
+```cs
+void OnStateUpdate(ref UpdateParameters p);
+```
+
+...where `UpdateParameters` is:
+```cs
+public struct UpdateParameters
+{
+    public float deltaTime;
+    public Actor actor;
+    public BasicStateMachine stateMachine;
+    public Translation translation;
+    public Rotation rotation;
+}
+```
