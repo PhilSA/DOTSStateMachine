@@ -2,7 +2,7 @@
 # DOTS State Machine
 
 ## How to install
-Simply download the .unitypackage in the "Releases" section of this repository, and import into your project
+Simply download the .unitypackage in the "Releases" section of this repository, and import into your DOTS-compatible project (requires Entities package)
 
 
 ## How to use
