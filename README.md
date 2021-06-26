@@ -25,4 +25,6 @@ Create state structs implementing that interface. All structs implementing the s
 ### Generate the statemachine code
 In the Unity editor, in the top menu bar, select "Tools > Generate StateMachines". This will generate the state machine component code with the name & patch defined in your `StateMachineDefinition` attribute.
 
+You only really have to generate again when you either add new states, or add new functions to your state machine interface
+
 You can now create an authoring component that adds this state machine component to an entity ([example](https://github.com/PhilSA/DOTSStateMachine/blob/master/Assets/_Samples/Basic/Scripts/ActorAuthoring.cs)), and call updates on you state machine with a system ([example](https://github.com/PhilSA/DOTSStateMachine/blob/master/Assets/_Samples/Basic/Scripts/ActorSystem.cs))
